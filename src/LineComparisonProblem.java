@@ -16,7 +16,7 @@ public class LineComparisonProblem {
         System.out.println("Enter coordinates of the second point y2: ");
         double y2 = sc.nextDouble();
 
-        double length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        Double length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         System.out.println("The length of the line is: " + length);
 
         System.out.println("Enter coordinates of the first point of line 2 x3: ");
@@ -29,15 +29,18 @@ public class LineComparisonProblem {
         System.out.println("Enter coordinates of the second point of line 2 y4: ");
         double y4 = sc.nextDouble();
 
-        double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
+        Double length2 = Math.sqrt(Math.pow(x4 - x3, 2) + Math.pow(y4 - y3, 2));
         System.out.println("The length of the line is: " + length2);
 
-        if(Double.valueOf(length).equals(Double.valueOf(length2))){
-            System.out.println("Two lines are equal in length");
-        } else{
-            System.out.println("Two lines are not equal in length");
-        }
+        int comparison = length.compareTo(length2);
 
+        if (comparison == 0) {
+            System.out.println("The two lines are equal in length.");
+        } else if (comparison > 0) {
+            System.out.println("The first line is longer than the second line.");
+        } else {
+            System.out.println("The first line is shorter than the second line.");
+        }
         sc.close();
 
     }
